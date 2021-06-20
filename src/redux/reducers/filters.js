@@ -1,7 +1,9 @@
 const initialState = {
-    sortBy: 'popular',
-    category: 0,
-
+    sortBy: {
+        type: 'popular',
+        order: 'desc'
+    },
+    category: null,
 }
 
 const filters = (state = initialState, action) => {
@@ -19,6 +21,5 @@ const filters = (state = initialState, action) => {
     }
     return state
 }
-
 
 export default filters;
