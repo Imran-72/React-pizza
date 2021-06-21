@@ -16,11 +16,13 @@ const SortPopUp = React.memo(({items, activeSortType, onClickSortType}) => {
     const toggleVariablePopUp = () => {
         setVisiblePopUp(!visiblePopUp)
     }
-    const handleOutSideClick = (e) => {
-        if (!e.path.includes(sortRef.current)) {
-            setVisiblePopUp(false)
+    const handleOutSideClick = (event) => {
+        const path = event.path || (event.composedPath && event.composedPath());
+        if (!path.includes(sortRef.current)) {
+            setVisiblePopUp(false);
         }
-    }
+    };
+
     const sortRef = useRef()
 
     useEffect(() => {
